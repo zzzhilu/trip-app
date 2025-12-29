@@ -1,4 +1,3 @@
-
 import { DayMission, IntelData } from './types';
 
 export const MISSION_START_DATE = '2026-01-08T00:00:00';
@@ -67,9 +66,9 @@ export const MISSIONS: DayMission[] = [
         id: "d2-1", 
         time: "06:40", 
         label: "搭乘第一班接駁巴士", 
-        link: "https://www.getokogen.com/winter/access/bus.html",
+        link: "https://www.getokogen.com/winter/05access/images/shuttle2026.pdf",
         detail: "地點：北上站東口站牌",
-        warning: "06:25 全員集結完畢。從飯店走到東口只需 3 分鐘。",
+        warning: "06:25 全員集結完畢。從飯店拖行李穿越地下道到東口需 6 分鐘。",
         iconType: 'mountain'
       },
       { 
@@ -105,28 +104,29 @@ export const MISSIONS: DayMission[] = [
       },
       { 
         id: "d6-2", 
-        time: "09:00", 
+        time: "08:45", 
         label: "接駁巴士撤離", 
-        link: "https://www.getokogen.com/winter/access/bus.html",
+        link: "https://www.getokogen.com/winter/05access/images/shuttle2026.pdf",
         detail: "目的地：北上車站",
         warning: "這是最穩定的回程起點，不要嘗試搭更晚的班次。",
         iconType: 'train'
       },
       { 
         id: "d6-3", 
-        time: "10:14", 
+        time: "10:30", 
         label: "東北新幹線回程", 
-        detail: "北上 -> 仙台 (11:05 抵達)",
+        detail: "北上 -> 仙台 (11:23 抵達)",
         note: "抵達仙台後，利用車站 2F 的「行李寄放處」處理 6 人的重裝。",
+        warning: "購物請於仙台完成，仙台機場品項很少",
         iconType: 'train'
       },
       { 
         id: "d6-4", 
-        time: "17:08", 
+        time: "17:21", 
         label: "最後衝刺：仙台機場線", 
         link: "https://www.senat.co.jp/timetable",
-        detail: "確保 17:33 抵達機場，對應 IT254 班機的回程。",
-        warning: "週二傍晚是通勤高峰，17:08 是最晚的安全紅線。",
+        detail: "確保 18:00 抵達機場，對應 IT255 班機19:40起飛。",
+        note: "16:30確認IT254起飛時間可彈性調整前往機場時間 根據紀錄IT255常延誤20~40分起飛",
         iconType: 'plane'
       }
     ]

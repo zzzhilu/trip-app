@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Bot, Send, Loader2, Minimize2, Maximize2 } from 'lucide-react';
+import { Bot, Send, Loader2, Minimize2 } from 'lucide-react';
 import { getMissionBriefing } from '../services/geminiService';
 
 const MissionAiAssistant: React.FC = () => {

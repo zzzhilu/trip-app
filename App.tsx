@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ShieldCheck, 
-  MapPin, 
   Plane, 
   Train, 
   Mountain, 
@@ -20,7 +19,6 @@ import IntelCard from './components/IntelCard';
 import MissionAiAssistant from './components/MissionAiAssistant';
 
 const App: React.FC = () => {
-  // Persistence logic
   const [completedTasks, setCompletedTasks] = useState<Record<string, boolean>>(() => {
     const saved = localStorage.getItem('geto-mission-tasks');
     if (saved) {
@@ -35,12 +33,10 @@ const App: React.FC = () => {
 
   const [timeLeft, setTimeLeft] = useState<{days: number, hours: number, mins: number}>({days: 0, hours: 0, mins: 0});
 
-  // Save on change
   useEffect(() => {
     localStorage.setItem('geto-mission-tasks', JSON.stringify(completedTasks));
   }, [completedTasks]);
 
-  // Countdown logic
   useEffect(() => {
     const calculateTime = () => {
       const start = new Date(MISSION_START_DATE).getTime();
@@ -69,16 +65,6 @@ const App: React.FC = () => {
     const completedCount = allTaskIds.filter(id => completedTasks[id]).length;
     return Math.round((completedCount / allTaskIds.length) * 100);
   }, [completedTasks]);
-
-  const getIcon = (type?: string) => {
-    switch(type) {
-      case 'plane': return Plane;
-      case 'train': return Train;
-      case 'mountain': return Mountain;
-      case 'cart': return ShoppingBag;
-      default: return Activity;
-    }
-  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500/30">
@@ -169,7 +155,7 @@ const App: React.FC = () => {
               title={mission.title} 
               date={mission.date} 
               icon={Layers}
-              colorClass="bg-slate-800"
+              colorClass="bg-slate-900"
             >
               <div className="space-y-4">
                 {mission.tasks.map((task) => (
@@ -199,7 +185,6 @@ const App: React.FC = () => {
           </div>
         </footer>
 
-        {/* AI Mission Assistant */}
         <MissionAiAssistant />
       </div>
     </div>
