@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
@@ -33,5 +32,33 @@ export const getMissionBriefing = async (userPrompt: string) => {
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "Error: Unable to connect to command center. Please try again later.";
+  }
+};
+
+export const generateMissionVisual = async () => {
+  try {
+    const prompt = 'A vertical tactical 9:16 cinematic shot of Geto Kogen ski resort in Japan, buried in massive, deep, pristine powder snow. NO TEXT, NO CHARACTERS, NO CALLIGRAPHY. The image should feature a breathtaking snowy mountain landscape with ski resort infrastructure like lifts or center houses visible in the distance under a heavy winter sky. High contrast, professional photography, tactical winter aesthetic. Optimized for mobile vertical viewing.';
+    
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash-image',
+      contents: {
+        parts: [{ text: prompt }],
+      },
+      config: {
+        imageConfig: {
+          aspectRatio: "9:16"
+        }
+      }
+    });
+
+    for (const part of response.candidates[0].content.parts) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
+    return null;
+  } catch (error) {
+    console.error("Image Generation Error:", error);
+    return null;
   }
 };
