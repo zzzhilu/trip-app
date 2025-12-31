@@ -10,6 +10,7 @@ interface MissionSectionProps {
   children: React.ReactNode;
   headerRight?: React.ReactNode;
   isCollapsed?: boolean;
+  theme?: 'dark' | 'light';
 }
 
 const MissionSection: React.FC<MissionSectionProps> = ({ 
@@ -19,10 +20,13 @@ const MissionSection: React.FC<MissionSectionProps> = ({
   colorClass, 
   children, 
   headerRight,
-  isCollapsed = false
+  isCollapsed = false,
+  theme = 'dark'
 }) => {
+  const isDark = theme === 'dark';
+
   return (
-    <div className="mb-10 bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-lg shadow-black/40 transition-all duration-300">
+    <div className={`mb-10 rounded-2xl border overflow-hidden transition-all duration-300 ${isDark ? 'bg-slate-900 border-slate-800 shadow-lg shadow-black/40' : 'bg-white border-slate-200 shadow-xl shadow-slate-200/50'}`}>
       <div className={`px-6 py-4 flex justify-between items-center border-b border-white/5 ${colorClass}`}>
         <div className="flex items-center gap-3">
           <Icon className="text-white" size={22} />
