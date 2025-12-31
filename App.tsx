@@ -20,7 +20,6 @@ import TaskItem from './components/TaskItem';
 import IntelCard from './components/IntelCard';
 import BackupPlanModal, { BackupPlanType } from './components/BackupPlanModal';
 import { generateMissionVisual } from './services/geminiService';
-import MissionAiAssistant from './components/MissionAiAssistant';
 
 const App: React.FC = () => {
   const [completedTasks, setCompletedTasks] = useState<Record<string, boolean>>(() => {
@@ -275,8 +274,7 @@ const App: React.FC = () => {
         </footer>
       </div>
 
-      {/* Modals & AI */}
-      <MissionAiAssistant />
+      {/* Modals */}
       <BackupPlanModal 
         isOpen={backupModalState.isOpen} 
         type={backupModalState.type}
