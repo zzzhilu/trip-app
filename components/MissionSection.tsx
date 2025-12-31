@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 
@@ -28,7 +29,11 @@ const MissionSection: React.FC<MissionSectionProps> = ({
           <h2 className="font-extrabold text-white text-lg tracking-wide uppercase">{title}</h2>
         </div>
         <div className="flex items-center gap-3">
-          {date && <span className="text-xs font-mono text-white/60 bg-black/30 px-2 py-1 rounded">{date}</span>}
+          {date && (
+            <span className="text-[10px] font-mono text-white/50 bg-black/30 px-2 py-0.5 rounded border border-white/5 tracking-tighter">
+              {date}
+            </span>
+          )}
           {headerRight}
         </div>
       </div>
